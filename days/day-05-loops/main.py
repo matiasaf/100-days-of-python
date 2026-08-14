@@ -26,23 +26,47 @@ def calculate_sum_formula(n: int) -> int:
     return int((n / 2) * (n + 1))
 
 
+# def generate_password_easy(nr_letters: int, nr_symbols: int, nr_numbers: int) -> str:
+#     letters = list("abcdefghijklmnopqrstuvwxyz")
+#     numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+#     symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+"]
+
+#     password = ""
+
+#     for _ in range(nr_letters):
+#         password += random.choice(letters)
+
+#     for _ in range(nr_symbols):
+#         password += random.choice(symbols)
+
+#     for _ in range(nr_numbers):
+#         password += random.choice(numbers)
+
+
+#     return password
 def generate_password_easy(nr_letters: int, nr_symbols: int, nr_numbers: int) -> str:
     letters = list("abcdefghijklmnopqrstuvwxyz")
     numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+"]
 
-    password = ""
+    password_list = []
+    final_password = ""
 
     for _ in range(nr_letters):
-        password += random.choice(letters)
+        password_list.append(random.choice(letters))
 
     for _ in range(nr_symbols):
-        password += random.choice(symbols)
+        password_list.append(random.choice(symbols))
 
     for _ in range(nr_numbers):
-        password += random.choice(numbers)
+        password_list.append(random.choice(numbers))
 
-    return password
+    random.shuffle(password_list)
+
+    for item in password_list:
+        final_password += item
+
+    return final_password
 
 
 def password_generator() -> None:

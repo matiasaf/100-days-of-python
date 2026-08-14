@@ -10,29 +10,38 @@ def generate_password_easy(nr_letters: int, nr_symbols: int, nr_numbers: int) ->
     numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+"]
 
-    password = ""
+    password_list = []
+    final_password = ""
 
     for _ in range(nr_letters):
-        password += random.choice(letters)
+        password_list.append(random.choice(letters))
 
     for _ in range(nr_symbols):
-        password += random.choice(symbols)
+        password_list.append(random.choice(symbols))
 
     for _ in range(nr_numbers):
-        password += random.choice(numbers)
+        password_list.append(random.choice(numbers))
 
-    return password
+    # Mix the characters into a random order.
+    random.shuffle(password_list)
+
+    # Concatenate all characters into the final password string.
+    for item in password_list:
+        final_password += item
+
+    return final_password
 
 
-# def generate_password(letters: int, symbols: int, numbers: int) -> str:
-#     characters = (
-#         [secrets.choice(string.ascii_letters) for _ in range(letters)]
-#         + [secrets.choice("!#$%&()*+") for _ in range(symbols)]
-#         + [secrets.choice(string.digits) for _ in range(numbers)]
-#     )
+def generate_password(letters: int, symbols: int, numbers: int) -> str:
+    # secrets is used here to generate characters securely.
+    characters = (
+        [secrets.choice(string.ascii_letters) for _ in range(letters)]
+        + [secrets.choice("!#$%&()*+") for _ in range(symbols)]
+        + [secrets.choice(string.digits) for _ in range(numbers)]
+    )
 
-#     secrets.SystemRandom().shuffle(characters)
-#     return "".join(characters)
+    secrets.SystemRandom().shuffle(characters)
+    return "".join(characters)
 
 
 st.title("🔐 Welcome to the PyPassword Generator!")
@@ -41,6 +50,6 @@ letters = st.slider("How many letters would you like in your password?", 1, 30, 
 symbols = st.slider("How many symbols would you like?", 0, 15, 3)
 numbers = st.slider("How many numbers would you like?", 0, 15, 3)
 
-if st.button("Generar contraseña"):
-    password = generate_password_easy(letters, symbols, numbers)
+if st.button("Generate password"):
+    password = generate_password(letters, symbols, numbers)
     st.code(password)
