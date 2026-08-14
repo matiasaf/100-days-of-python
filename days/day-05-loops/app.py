@@ -24,16 +24,6 @@ def generate_password_easy(nr_letters: int, nr_symbols: int, nr_numbers: int) ->
     return password
 
 
-def password_generator() -> None:
-    print("Welcome to the PyPassword Generator!")
-
-    nr_letters = int(input("How many letters would you like in your password?\n"))
-    nr_symbols = int(input("How many symbols would you like?\n"))
-    nr_numbers = int(input("How many numbers would you like?\n"))
-
-    return generate_password_easy(nr_letters, nr_symbols, nr_numbers)
-
-
 # def generate_password(letters: int, symbols: int, numbers: int) -> str:
 #     characters = (
 #         [secrets.choice(string.ascii_letters) for _ in range(letters)]
@@ -45,7 +35,7 @@ def password_generator() -> None:
 #     return "".join(characters)
 
 
-st.title("🔐 Generador de contraseñas")
+st.title("🔐 Welcome to the PyPassword Generator!")
 
 letters = st.slider("How many letters would you like in your password?", 1, 30, 10)
 symbols = st.slider("How many symbols would you like?", 0, 15, 3)
