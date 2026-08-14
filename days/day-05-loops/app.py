@@ -51,5 +51,5 @@ symbols = st.slider("How many symbols would you like?", 0, 15, 3)
 numbers = st.slider("How many numbers would you like?", 0, 15, 3)
 
 if st.button("Generate password"):
-    password = generate_password(letters, symbols, numbers)
+    password = generate_password_easy(letters, symbols, numbers)
     st.code(password)
