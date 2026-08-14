@@ -1,8 +1,8 @@
-"""Day 06 — Functions & Karel — Reeborg's World"""
+"""Day 06 — Functions & Karel"""
 
 
 def main() -> None:
-    print("Day 06 — Functions & Karel — Reeborg's World")
+    print("Day 06 — Functions & Karel")
 
 
 if __name__ == "__main__":
