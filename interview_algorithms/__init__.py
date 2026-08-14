@@ -1,2 +1,1 @@
-"""Ejercicios de algoritmos y patrones comunes de entrevistas."""
-
+"""Exercises covering algorithms and common coding interview patterns."""

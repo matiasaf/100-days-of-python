@@ -1,15 +1,15 @@
 # Day 05 — Loops — Password Generator
 
-> Sección del curso: Python Loops
+> Course section: Python Loops
 
-## Conceptos
-
--
-
-## Proyecto
+## Concepts
 
 -
 
-## Dudas
+## Project
+
+-
+
+## Questions
 
 -

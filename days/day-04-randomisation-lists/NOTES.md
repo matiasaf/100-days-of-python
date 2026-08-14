@@ -1,15 +1,15 @@
 # Day 04 — Randomisation & Lists — Rock Paper Scissors
 
-> Sección del curso: Randomisation and Python Lists
+> Course section: Randomisation and Python Lists
 
-## Conceptos
-
--
-
-## Proyecto
+## Concepts
 
 -
 
-## Dudas
+## Project
+
+-
+
+## Questions
 
 -

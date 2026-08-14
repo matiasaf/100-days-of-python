@@ -1,17 +1,18 @@
-"""Patrón: contador de frecuencias.
+"""Pattern: frequency counter.
 
-Es útil cuando importa cuántas veces aparece cada valor. Cambiar búsquedas
-repetidas por uno o dos diccionarios suele reducir O(n²) a O(n).
+This pattern is useful when the number of times each value occurs matters.
+Replacing repeated searches with one or two dictionaries often reduces O(n²)
+to O(n).
 """
 
 from collections import Counter
 
 
 def same_squared_naive(first: list[int], second: list[int]) -> bool:
-    """Indica si ``second`` contiene los cuadrados de ``first``.
+    """Return whether ``second`` contains the squares of ``first``.
 
-    La frecuencia debe coincidir. Esta versión copia la segunda lista y busca
-    cada cuadrado en ella: O(n²) en tiempo y O(n) en espacio.
+    Frequencies must match. This version copies the second list and searches it
+    for each square: O(n²) time and O(n) space.
     """
     if len(first) != len(second):
         return False
@@ -26,7 +27,7 @@ def same_squared_naive(first: list[int], second: list[int]) -> bool:
 
 
 def same_squared(first: list[int], second: list[int]) -> bool:
-    """Resuelve el mismo problema con contadores: O(n) tiempo y O(n) espacio."""
+    """Solve the same problem with counters: O(n) time and O(n) space."""
     if len(first) != len(second):
         return False
 
@@ -35,11 +36,11 @@ def same_squared(first: list[int], second: list[int]) -> bool:
 
 
 def valid_anagram(first: str, second: str) -> bool:
-    """Indica si dos strings contienen exactamente los mismos caracteres.
+    """Return whether two strings contain exactly the same characters.
 
-    Se distingue entre mayúsculas y minúsculas y se tienen en cuenta espacios
-    y signos. Complejidad: O(n) tiempo y O(k) espacio, donde k es la cantidad
-    de caracteres distintos.
+    The comparison is case-sensitive and includes spaces and punctuation.
+    Complexity: O(n) time and O(k) space, where k is the number of distinct
+    characters.
     """
     if len(first) != len(second):
         return False
@@ -59,4 +60,4 @@ if __name__ == "__main__":
     assert same_squared([1, 2, 3], [4, 1, 10])
     assert not same_squared([1, 2, 1], [4, 4, 1])
     assert valid_anagram("anagram", "nagaram")
-    print("Ejemplos de contador de frecuencias: OK")
+    print("Frequency counter examples: OK")

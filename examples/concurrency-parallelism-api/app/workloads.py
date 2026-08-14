@@ -1,13 +1,13 @@
-"""Funciones de trabajo que deben poder importarse desde procesos hijos."""
+"""Workload functions that must be importable by child processes."""
 
 from os import getpid
 
 
 def cpu_work(task_id: int, iterations: int) -> dict[str, int]:
-    """Ejecuta trabajo puro de Python y devuelve el PID que lo procesó.
+    """Run pure Python work and return the PID that processed it.
 
-    Al ser una función de nivel de módulo, ProcessPoolExecutor puede serializarla
-    y ejecutarla en otro intérprete de Python, evitando la limitación del GIL.
+    Because this is a module-level function, ProcessPoolExecutor can serialize
+    it and run it in another Python interpreter, bypassing the GIL limitation.
     """
     checksum = 0
     for number in range(iterations):

@@ -1,15 +1,15 @@
 # Day 10 — Functions with Outputs — Calculator
 
-> Sección del curso: Functions with Outputs
+> Course section: Functions with Outputs
 
-## Conceptos
-
--
-
-## Proyecto
+## Concepts
 
 -
 
-## Dudas
+## Project
+
+-
+
+## Questions
 
 -

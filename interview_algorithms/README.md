@@ -1,89 +1,89 @@
-# Algoritmos de entrevistas en Python
+# Coding Interview Algorithms in Python
 
-Este módulo es un espacio separado del recorrido de los 100 días. La idea no es
-memorizar soluciones: es practicar una forma repetible de pensar, reconocer
-patrones y, al mismo tiempo, aprender el Python necesario para expresarlos.
+This module is separate from the 100-day course. The goal is not to memorize
+solutions, but to practice a repeatable way of thinking, recognize patterns,
+and learn the Python needed to express them along the way.
 
-## El proceso que usaremos
+## The process we will use
 
-Antes de escribir código, seguí estos cinco pasos:
+Before writing code, follow these five steps:
 
-1. **Entender:** reformulá el problema, identificá entradas, salida y restricciones.
-2. **Explorar ejemplos:** incluí casos simples, complejos, vacíos e inválidos.
-3. **Descomponer:** escribí en lenguaje natural los pasos de la solución.
-4. **Resolver o simplificar:** empezá por una solución correcta; si te trabás,
-   aislá la parte difícil y resolvé una versión más simple.
-5. **Revisar y refactorizar:** verificá el resultado, la legibilidad y las
-   complejidades temporal y espacial.
+1. **Understand:** restate the problem and identify its inputs, output, and
+   constraints.
+2. **Explore examples:** include simple, complex, empty, and invalid cases.
+3. **Break it down:** describe the steps of the solution in plain language.
+4. **Solve or simplify:** start with a correct solution. If you get stuck,
+   isolate the difficult part and solve a simpler version.
+5. **Review and refactor:** verify the result, readability, and time and space
+   complexity.
 
-En una entrevista conviene decir estos pasos en voz alta. El entrevistador no
-solo evalúa el resultado: también necesita entender cómo llegaste a él.
+During an interview, it helps to explain these steps out loud. Interviewers
+evaluate more than the result: they also need to understand how you reached it.
 
-## Contenido actual
+## Current content
 
-| Patrón | Pregunta que ayuda a reconocerlo | Ejercicios |
+| Pattern | Question that helps identify it | Exercises |
 |---|---|---|
-| Contador de frecuencias | ¿Necesito comparar cantidades de valores? | cuadrados correspondientes, anagramas |
-| Dos punteros | ¿Los datos ordenados permiten descartar extremos? | suma cero, valores únicos |
-| Ventana deslizante | ¿Busco algo en un segmento contiguo? | suma máxima de `k` elementos |
-| Dividir y conquistar | ¿Puedo descartar la mitad en cada paso? | búsqueda binaria |
+| Frequency counter | Do I need to compare how often values occur? | corresponding squares, anagrams |
+| Two pointers | Can sorted data help me discard values at either end? | zero sum, unique values |
+| Sliding window | Am I looking for something in a contiguous segment? | maximum sum of `k` elements |
+| Divide and conquer | Can I discard half of the data at each step? | binary search |
 
-Cada archivo contiene:
+Each file contains:
 
-- el enunciado y las decisiones importantes;
-- una solución ingenua para usar como punto de partida;
-- una solución optimizada;
-- complejidad temporal y espacial;
-- ejemplos ejecutables mediante tests.
+- the problem statement and important decisions;
+- a naive solution to use as a starting point;
+- an optimized solution;
+- time and space complexity;
+- examples that can be run as tests.
 
-## Cómo estudiar un ejercicio
+## How to study an exercise
 
-Tomá, por ejemplo, `sum_zero`:
+Take `sum_zero`, for example:
 
-1. Leé únicamente el enunciado en `two_pointers.py`.
-2. Escribí tres casos a mano, incluyendo uno sin solución.
-3. Implementá primero dos bucles anidados sin mirar la solución.
-4. Preguntate qué permite descartar el hecho de que la lista esté ordenada.
-5. Compará tu idea con `sum_zero` y explicá por qué mover cada puntero es seguro.
-6. Corré los tests y agregá un caso que no estuviera contemplado.
+1. Read only the problem statement in `two_pointers.py`.
+2. Write three cases by hand, including one with no solution.
+3. Implement two nested loops first, without looking at the solution.
+4. Ask yourself what can be discarded because the list is sorted.
+5. Compare your idea with `sum_zero` and explain why moving each pointer is safe.
+6. Run the tests and add a case that is not already covered.
 
-## Python que aparece en las soluciones
+## Python features used in the solutions
 
-- `list[int]`, `tuple[int, int] | None`: anotaciones de tipos.
-- `dict.get(clave, 0)`: lectura de un contador con valor inicial.
-- `collections.Counter`: contador de frecuencias de la biblioteca estándar.
-- `enumerate`: recorrer valores junto con su índice.
-- cortes como `values[:window_size]`: obtener una porción de una lista.
-- `raise ValueError(...)`: rechazar argumentos cuyo significado sería ambiguo.
+- `list[int]`, `tuple[int, int] | None`: type annotations.
+- `dict.get(key, 0)`: reading a counter with an initial value.
+- `collections.Counter`: a frequency counter from the standard library.
+- `enumerate`: iterating over values together with their indexes.
+- slices such as `values[:window_size]`: obtaining part of a list.
+- `raise ValueError(...)`: rejecting arguments whose meaning would be ambiguous.
 
-Las anotaciones ayudan a documentar, pero Python no las valida automáticamente
-al ejecutar. Los tests son los que comprueban el comportamiento.
+Type annotations help document the code, but Python does not validate them
+automatically at runtime. The tests verify the behavior.
 
-## Ejecutar todo
+## Run everything
 
-Desde la raíz del repositorio:
+From the repository root:
 
 ```sh
 python3 -m unittest discover -s interview_algorithms/tests -v
 ```
 
-También podés abrir cualquier archivo de `problems/` y ejecutar sus ejemplos:
+You can also open any file in `problems/` and run its examples:
 
 ```sh
 python3 -m interview_algorithms.problems.two_pointers
 ```
 
-## Agregar el próximo problema
+## Add the next problem
 
-Copiá `problem_template.py`, renombralo con `snake_case` y completá cada sección.
-Luego agregá sus casos en `tests/`. Una buena progresión desde acá sería:
+Copy `problem_template.py`, rename it using `snake_case`, and complete each
+section. Then add its cases to `tests/`. A good progression from here would be:
 
-1. frecuencia: `same_frequency` y `are_there_duplicates`;
-2. dos punteros: `average_pair` y eliminación de duplicados;
-3. ventana: substring más largo sin caracteres repetidos;
-4. recursión, ordenamiento y estructuras de datos;
-5. backtracking y programación dinámica.
+1. frequency: `same_frequency` and `are_there_duplicates`;
+2. two pointers: `average_pair` and duplicate removal;
+3. sliding window: longest substring without repeated characters;
+4. recursion, sorting, and data structures;
+5. backtracking and dynamic programming.
 
-El objetivo de cada incorporación es poder explicar no solo **qué** funciona,
-sino **por qué** y bajo qué restricciones.
-
+The goal of every addition is to explain not only **what** works, but also
+**why** it works and under which constraints.

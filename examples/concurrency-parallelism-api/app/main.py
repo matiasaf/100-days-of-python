@@ -1,4 +1,4 @@
-"""API para observar la diferencia entre concurrencia y paralelismo."""
+"""API for observing the difference between concurrency and parallelism."""
 
 import asyncio
 from concurrent.futures import ProcessPoolExecutor
@@ -11,10 +11,10 @@ from fastapi import FastAPI, Query
 from app.workloads import cpu_work
 
 app = FastAPI(
-    title="Concurrencia vs. paralelismo",
+    title="Concurrency vs. Parallelism",
     description=(
-        "Experimentos reproducibles: asyncio para esperas de I/O y procesos "
-        "separados para trabajo intensivo de CPU."
+        "Reproducible experiments: asyncio for I/O waits and separate "
+        "processes for CPU-intensive work."
     ),
     version="1.0.0",
 )
@@ -25,7 +25,7 @@ def milliseconds(seconds: float) -> float:
 
 
 async def simulated_io(task_id: int, delay: float, origin: float) -> dict:
-    """Representa una consulta a una API, base de datos o archivo."""
+    """Represent a request to an API, database, or file."""
     started = perf_counter()
     await asyncio.sleep(delay)
     finished = perf_counter()
@@ -55,7 +55,7 @@ async def run_io_batch(tasks: int, delay: float, concurrent: bool) -> dict:
 
 
 async def run_cpu_batch(tasks: int, iterations: int, workers: int) -> dict:
-    """Ejecuta CPU fuera del proceso de FastAPI para no bloquear su event loop."""
+    """Run CPU work outside FastAPI's process to avoid blocking its event loop."""
     origin = perf_counter()
     loop = asyncio.get_running_loop()
 
@@ -76,7 +76,7 @@ async def run_cpu_batch(tasks: int, iterations: int, workers: int) -> dict:
 @app.get("/", tags=["info"])
 async def root() -> dict:
     return {
-        "message": "Abrí /docs y ejecutá los dos experimentos.",
+        "message": "Open /docs and run both experiments.",
         "experiments": {
             "concurrency": "/demo/concurrency?tasks=4&delay=0.25",
             "parallelism": "/demo/parallelism?tasks=4&iterations=2000000",
@@ -94,7 +94,7 @@ async def concurrency_demo(
     tasks: Annotated[int, Query(ge=2, le=20)] = 4,
     delay: Annotated[float, Query(gt=0, le=2)] = 0.25,
 ) -> dict:
-    """Compara esperas secuenciales con esperas concurrentes en un solo proceso."""
+    """Compare sequential and concurrent waits within a single process."""
     sequential = await run_io_batch(tasks, delay, concurrent=False)
     concurrent = await run_io_batch(tasks, delay, concurrent=True)
 
@@ -103,15 +103,15 @@ async def concurrency_demo(
         "kind_of_work": "I/O-bound (simulated)",
         "process_pid": getpid(),
         "expected": {
-            "sequential_ms": f"aproximadamente {tasks * delay * 1_000:.0f}",
-            "concurrent_ms": f"aproximadamente {delay * 1_000:.0f}",
+            "sequential_ms": f"approximately {tasks * delay * 1_000:.0f}",
+            "concurrent_ms": f"approximately {delay * 1_000:.0f}",
         },
         "sequential": sequential,
         "concurrent": concurrent,
         "speedup": round(sequential["elapsed_ms"] / concurrent["elapsed_ms"], 2),
         "explanation": (
-            "Las tareas concurrentes comparten un event loop: cuando una espera, "
-            "otra puede avanzar. No hace falta ejecutar Python en varios núcleos."
+            "Concurrent tasks share an event loop: while one waits, another can "
+            "make progress. Python does not need to run on multiple cores."
         ),
     }
 
@@ -121,7 +121,7 @@ async def parallelism_demo(
     tasks: Annotated[int, Query(ge=2, le=8)] = 4,
     iterations: Annotated[int, Query(ge=10_000, le=20_000_000)] = 2_000_000,
 ) -> dict:
-    """Compara trabajo de CPU en uno y en varios procesos."""
+    """Compare CPU work in one process and across multiple processes."""
     available_cpus = cpu_count() or 1
     parallel_workers = min(tasks, available_cpus)
 
@@ -138,11 +138,13 @@ async def parallelism_demo(
         "parallel": parallel,
         "speedup": round(sequential["elapsed_ms"] / parallel["elapsed_ms"], 2),
         "explanation": (
-            "Cada PID identifica un intérprete separado. Con varios núcleos, esos "
-            "procesos pueden calcular al mismo tiempo y no compiten por el GIL."
+            "Each PID identifies a separate interpreter. With multiple cores, "
+            "these processes can compute simultaneously without competing for "
+            "the GIL."
         ),
         "caveat": (
-            "Para trabajos pequeños, crear procesos puede costar más que la mejora "
-            "obtenida; aumentá iterations para que la diferencia sea visible."
+            "For small workloads, creating processes can cost more than the "
+            "resulting improvement. Increase iterations to make the difference "
+            "visible."
         ),
     }

@@ -1,1 +1,1 @@
-"""Ejemplo educativo de concurrencia y paralelismo con FastAPI."""
+"""Educational concurrency and parallelism example built with FastAPI."""

@@ -1,15 +1,15 @@
 # Day 07 — Hangman
 
-> Sección del curso: Hangman
+> Course section: Hangman
 
-## Conceptos
-
--
-
-## Proyecto
+## Concepts
 
 -
 
-## Dudas
+## Project
+
+-
+
+## Questions
 
 -

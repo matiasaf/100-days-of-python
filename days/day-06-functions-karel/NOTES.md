@@ -1,15 +1,15 @@
 # Day 06 — Functions & Karel — Reeborg's World
 
-> Sección del curso: Python Functions & Karel
+> Course section: Python Functions & Karel
 
-## Conceptos
-
--
-
-## Proyecto
+## Concepts
 
 -
 
-## Dudas
+## Project
+
+-
+
+## Questions
 
 -

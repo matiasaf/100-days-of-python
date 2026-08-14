@@ -1,19 +1,19 @@
 # 100 Days of Code — The Complete Python Pro Bootcamp
 
-Código y proyectos del curso de Udemy (Angela Yu, 57 h · 100 días).
+Code and projects from Angela Yu's 100-day Python Udemy course (57 hours).
 
-## Estructura
+## Structure
 
 ```
 100-days-of-python/
 ├── days/
 │   ├── day-01-variables/
-│   │   ├── main.py          # ejercicio / proyecto del día
-│   │   └── NOTES.md         # apuntes y conceptos nuevos
+│   │   ├── main.py          # daily exercise or project
+│   │   └── NOTES.md         # notes and new concepts
 │   └── ...
-├── new-day.sh               # crea la carpeta del próximo día
-├── requirements.txt         # dependencias (se van sumando)
-└── .venv/                   # entorno virtual (no se versiona)
+├── new-day.sh               # creates the next day's directory
+├── requirements.txt         # dependencies (added as needed)
+└── .venv/                   # virtual environment (not tracked)
 ```
 
 ## Setup
@@ -25,28 +25,28 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Crear un día nuevo
+## Create a new day
 
 ```sh
 ./new-day.sh 11 "while-loops-fizzbuzz"
 ```
 
-Crea `days/day-11-while-loops-fizzbuzz/` con `main.py` y `NOTES.md`.
+This creates `days/day-11-while-loops-fizzbuzz/` with `main.py` and `NOTES.md`.
 
-## Correr un ejercicio
+## Run an exercise
 
 ```sh
 python days/day-01-variables/main.py
 ```
 
-## Ejemplos adicionales
+## Additional examples
 
-- [Concurrencia vs. paralelismo con FastAPI](examples/concurrency-parallelism-api/README.md)
-- [Algoritmos de entrevistas en Python](interview_algorithms/README.md)
+- [Concurrency vs. parallelism with FastAPI](examples/concurrency-parallelism-api/README.md)
+- [Coding interview algorithms in Python](interview_algorithms/README.md)
 
-## Progreso
+## Progress
 
-| Día | Tema | Proyecto | Estado |
+| Day | Topic | Project | Status |
 |-----|------|----------|--------|
 | 01 | Variables | Band Name Generator | ⬜ |
 | 02 | Data Types & Strings | Tip Calculator | ⬜ |
@@ -59,4 +59,4 @@ python days/day-01-variables/main.py
 | 09 | Dictionaries & Nesting | Secret Auction | ⬜ |
 | 10 | Functions with Outputs | Calculator | ⬜ |
 
-Marcá con ✅ a medida que avanzás.
+Mark each day with ✅ as you progress.

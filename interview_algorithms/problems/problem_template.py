@@ -1,29 +1,28 @@
-"""Plantilla para incorporar un nuevo ejercicio.
+"""Template for adding a new exercise.
 
-Enunciado:
-    Escribí aquí qué debe hacer la función.
+Problem statement:
+    Write what the function must do here.
 
-Entradas y salida:
-    Documentá tipos, restricciones y qué ocurre con casos inválidos.
+Inputs and output:
+    Document types, constraints, and what happens with invalid cases.
 
-Ejemplos:
-    - Caso simple
-    - Caso límite
-    - Caso inválido, si corresponde
+Examples:
+    - Simple case
+    - Edge case
+    - Invalid case, if applicable
 
-Idea inicial:
-    Describí una solución correcta aunque todavía no sea óptima.
+Initial idea:
+    Describe a correct solution, even if it is not yet optimal.
 
-Mejora:
-    Anotá el patrón o la observación que elimina trabajo innecesario.
+Improvement:
+    Note the pattern or observation that eliminates unnecessary work.
 
-Complejidad:
-    Tiempo: O(?)
-    Espacio: O(?)
+Complexity:
+    Time: O(?)
+    Space: O(?)
 """
 
 
 def solve(values: list[int]) -> object:
-    """Reemplazá este texto con el contrato preciso de la solución."""
-    raise NotImplementedError("Implementá el próximo ejercicio")
-
+    """Replace this text with the solution's precise contract."""
+    raise NotImplementedError("Implement the next exercise")

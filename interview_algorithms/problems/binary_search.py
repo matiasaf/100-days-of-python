@@ -1,8 +1,8 @@
-"""Patrón: dividir y conquistar mediante búsqueda binaria."""
+"""Pattern: divide and conquer through binary search."""
 
 
 def linear_search(values: list[int], target: int) -> int:
-    """Busca de izquierda a derecha: O(n) tiempo y O(1) espacio."""
+    """Search from left to right: O(n) time and O(1) space."""
     for index, value in enumerate(values):
         if value == target:
             return index
@@ -10,10 +10,10 @@ def linear_search(values: list[int], target: int) -> int:
 
 
 def binary_search(values: list[int], target: int) -> int:
-    """Busca ``target`` en una lista ordenada: O(log n) tiempo, O(1) espacio.
+    """Search for ``target`` in a sorted list: O(log n) time, O(1) space.
 
-    La comparación con el elemento central permite descartar la mitad que no
-    puede contener al objetivo. Devuelve -1 cuando el valor no está presente.
+    Comparing against the middle element lets us discard the half that cannot
+    contain the target. Return -1 when the value is not present.
     """
     left = 0
     right = len(values) - 1
@@ -34,4 +34,4 @@ def binary_search(values: list[int], target: int) -> int:
 if __name__ == "__main__":
     assert binary_search([1, 2, 3, 4, 5, 6], 4) == 3
     assert binary_search([1, 2, 3, 4, 5, 6], 11) == -1
-    print("Ejemplos de búsqueda: OK")
+    print("Search examples: OK")

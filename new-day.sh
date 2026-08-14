@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Crea la carpeta de un día nuevo del curso.
-# Uso: ./new-day.sh 11 "while-loops-fizzbuzz"
+# Creates the directory for a new course day.
+# Usage: ./new-day.sh 11 "while-loops-fizzbuzz"
 set -euo pipefail
 
 if [ $# -lt 2 ]; then
-  echo "Uso: $0 <numero-de-dia> <slug-del-tema>" >&2
-  echo "Ej:  $0 11 while-loops-fizzbuzz" >&2
+  echo "Usage: $0 <day-number> <topic-slug>" >&2
+  echo "Example: $0 11 while-loops-fizzbuzz" >&2
   exit 1
 fi
 
@@ -14,7 +14,7 @@ slug=$(echo "$2" | tr '[:upper:] ' '[:lower:]-')
 dir="$(dirname "$0")/days/day-${num}-${slug}"
 
 if [ -d "$dir" ]; then
-  echo "Ya existe: $dir" >&2
+  echo "Already exists: $dir" >&2
   exit 1
 fi
 
@@ -35,17 +35,17 @@ EOF
 cat > "$dir/NOTES.md" <<EOF
 # Day ${num} — ${2}
 
-## Conceptos
+## Concepts
 
 -
 
-## Proyecto
+## Project
 
 -
 
-## Dudas
+## Questions
 
 -
 EOF
 
-echo "Creado: $dir"
+echo "Created: $dir"

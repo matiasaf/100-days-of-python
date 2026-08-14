@@ -1,13 +1,13 @@
 # Day 11 — blackjack-capstone
 
-## Conceptos
+## Concepts
 
 -
 
-## Proyecto
+## Project
 
 -
 
-## Dudas
+## Questions
 
 -

@@ -1,8 +1,8 @@
-"""Patrón: ventana deslizante para segmentos contiguos."""
+"""Pattern: sliding window for contiguous segments."""
 
 
 def max_subarray_sum_naive(values: list[int], window_size: int) -> int | None:
-    """Obtiene la suma máxima recalculando cada ventana: O(n*k) tiempo."""
+    """Get the maximum sum by recalculating each window: O(n*k) time."""
     _validate_window_size(window_size)
     if window_size > len(values):
         return None
@@ -14,10 +14,11 @@ def max_subarray_sum_naive(values: list[int], window_size: int) -> int | None:
 
 
 def max_subarray_sum(values: list[int], window_size: int) -> int | None:
-    """Obtiene la suma máxima de ``window_size`` elementos consecutivos.
+    """Get the maximum sum of ``window_size`` consecutive elements.
 
-    Al avanzar se resta el elemento que sale y se suma el que entra, evitando
-    recalcular toda la ventana. Complejidad: O(n) tiempo y O(1) espacio.
+    As the window advances, subtract the outgoing element and add the incoming
+    one to avoid recalculating the whole window. Complexity: O(n) time and
+    O(1) space.
     """
     _validate_window_size(window_size)
     if window_size > len(values):
@@ -35,12 +36,11 @@ def max_subarray_sum(values: list[int], window_size: int) -> int | None:
 
 def _validate_window_size(window_size: int) -> None:
     if window_size <= 0:
-        raise ValueError("window_size debe ser mayor que cero")
+        raise ValueError("window_size must be greater than zero")
 
 
 if __name__ == "__main__":
     assert max_subarray_sum([1, 2, 5, 2, 8, 1, 5], 2) == 10
     assert max_subarray_sum([1, 2, 5, 2, 8, 1, 5], 4) == 17
     assert max_subarray_sum([], 4) is None
-    print("Ejemplos de ventana deslizante: OK")
-
+    print("Sliding window examples: OK")

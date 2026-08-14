@@ -1,2 +1,1 @@
-"""Soluciones agrupadas por patrón algorítmico."""
-
+"""Solutions grouped by algorithmic pattern."""
