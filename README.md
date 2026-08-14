@@ -42,6 +42,7 @@ python days/day-01-variables/main.py
 ## Ejemplos adicionales
 
 - [Concurrencia vs. paralelismo con FastAPI](examples/concurrency-parallelism-api/README.md)
+- [Algoritmos de entrevistas en Python](interview_algorithms/README.md)
 
 ## Progreso
 
