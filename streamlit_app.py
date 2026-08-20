@@ -27,9 +27,12 @@ st.markdown(
         .app-hero h1 { margin: 0 0 .5rem; font-size: 2.7rem; }
         .app-hero p { margin: 0; color: #dbeafe; font-size: 1.1rem; }
         .word-display {
-            font-family: monospace;
+            color: #111827 !important;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                "Liberation Mono", "Courier New", monospace;
             font-size: clamp(1.8rem, 6vw, 3.5rem);
             font-weight: 700;
+            line-height: 1.35;
             letter-spacing: .45rem;
             text-align: center;
             padding: 1.5rem;
