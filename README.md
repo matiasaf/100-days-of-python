@@ -39,6 +39,24 @@ This creates `days/day-11-while-loops-fizzbuzz/` with `main.py` and `NOTES.md`.
 python days/day-01-variables/main.py
 ```
 
+## Run the mini apps
+
+The web launcher includes the Day 05 Password Generator and the Day 07 Hangman
+game in a single app:
+
+```sh
+streamlit run streamlit_app.py
+```
+
+### Deploy with Streamlit Community Cloud
+
+1. Push the repository to GitHub.
+2. Sign in at [share.streamlit.io](https://share.streamlit.io).
+3. Create an app and select this repository.
+4. Set `streamlit_app.py` as the entrypoint file and deploy.
+
+Both mini apps will be available through the same public URL.
+
 ## Additional examples
 
 - [Concurrency vs. parallelism with FastAPI](examples/concurrency-parallelism-api/README.md)
